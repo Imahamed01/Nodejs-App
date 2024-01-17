@@ -1,0 +1,53 @@
+app.get("/api/contacts",(req,res)=>{
+    res.json({"message":"Get all endpoint"});
+
+})
+
+app.post("/api/contacts",(req,res)=>{
+    res.json({"message":"post all endpoint"});
+})
+
+app.put("/api/contacts/:id",(req,res)=>{
+    res.json({"message":"Put all endpoint"});
+})
+
+app.delete("/api/contacts/:id",(req,res)=>{
+    res.json({"message":"delete Contact endpoint"});
+})
+
+
+app.get("/api/contacts/:id",(req,res)=>{
+    res.json({"message":"Return the Contact with the ID"});
+})
+
+
+
+import express from 'express';
+const contactRoutes=express.Router();
+
+contactRoutes.route("/").get((req,res)=>{
+    res.json({"message":"Get all endpoint"});
+
+});
+
+contactRoutes.route("/:d").get((req,res)=>{
+    res.json({"message":"Return the Contact with the ID"});
+});
+
+
+contactRoutes.route("/:id").delete((req,res)=>{
+    res.json({"message":"delete Contact endpoint"});
+});
+
+
+
+contactRoutes.route("/:id").put((req,res)=>{
+    res.json({"message":"Put all endpoint"});
+});
+
+
+contactRoutes.route("/").post((req,res)=>{
+    res.json({"message":"post all endpoint"});
+});
+
+export default contactRoutes;
